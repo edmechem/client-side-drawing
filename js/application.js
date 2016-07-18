@@ -56,10 +56,26 @@ function grabAndDrawLastTwoClicks(click1, click2) {
 }
 
 function drawBox(x, y, width, height) {
-  theContext.fillStyle = randomColor();
+  var color1 = randomColor();
+  var color2 = randomColor();
+
+  if (height >= width) {
+    var fillRect = [0, 0, 0, height];
+  } else {
+    var fillRect = [0, 0, width, 0];
+  }
+
+  var theGradient = theContext.createLinearGradient(fillRect[0], fillRect[1], fillRect[2], fillRect[3]);
+  theGradient.addColorStop(0, color1);
+  theGradient.addColorStop(1, color2);
+  theContext.fillStyle = theGradient;
   theContext.fillRect(x, y, width, height);
 }
 
 function randomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function randomOrientation() {
+  return orientations[Math.floor(Math.random() * orientations.length)];
 }
