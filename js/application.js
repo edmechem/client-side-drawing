@@ -1,35 +1,63 @@
 $(document).ready(function() {
+  mode = tabClick();
   canvasClick();
 });
 
+function tabClick() {
+  var activeTab = $("li.active > a").attr('href');
+  $(activeTab).show();
+
+  $("li a").on("click", function(event){
+    event.preventDefault();
+
+    $("li.active").removeClass("active");
+    $(this).parent().addClass("active");
+
+    mode = $(this).attr('href').slice(1);
+    return mode;
+  })
+}
+
 clicks = [];
-
 colorVals = ["00", "11", "22", "33", "44", "55", "66", "77", "88", "99", "AA", "BB", "CC", "DD", "EE", "FF"];
-
 
 function canvasClick() {
   $('body').on('click', '#canvas', function(event) {
-    event.preventDefault();
-    theCanvas = this;
-    theContext = theCanvas.getContext("2d");
-
-    var theClick = event.originalEvent;
-    var xLoc = theClick.layerX;
-    var yLoc = theClick.layerY;
-    var clickLoc = {xLoc, yLoc};
-    clicks.push(clickLoc);
-    // console.log(clickLoc);
-    // console.log(clicks.length);
-
-    if (clicks.length >= 2) {
-      var click2 = clicks.pop();
-      var click1 = clicks.pop();
-      grabAndDrawLastTwoClicks(click1, click2);
+    if (typeof mode == 'undefined') {mode = 'twoclickrects'};
+    if (mode == "twoclickrects") {
+      twoclickrects(event);
+    } else if (mode == "dragrects") {
+      dragrects(event);
+    } else if (mode == "somethingelse") {
+      somethingelse(event);
     };
-
-    // debugger;
-
   })
+}
+
+function twoclickrects(event) {
+  event.preventDefault();
+  theCanvas = $('#canvas')[0];
+  theContext = theCanvas.getContext("2d");
+  var theClick = event.originalEvent;
+
+  var xLoc = theClick.layerX;
+  var yLoc = theClick.layerY;
+  var clickLoc = {xLoc, yLoc};
+  clicks.push(clickLoc);
+
+  if (clicks.length >= 2) {
+    var click2 = clicks.pop();
+    var click1 = clicks.pop();
+    grabAndDrawLastTwoClicks(click1, click2);
+  };
+}
+
+function dragrects(theClick) {
+  // do something, eventually
+}
+
+function somethingelse(theClick) {
+  // do something, eventually
 }
 
 function grabAndDrawLastTwoClicks(click1, click2) {
