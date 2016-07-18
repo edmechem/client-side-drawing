@@ -1,6 +1,14 @@
 body {
-  font-family: 'Comfortaa', cursive;
   background-color: #EEEEEE;
+  /*background-color: black;*/
+}
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  font-size: 48px;
+  /*color: white;*/
+  /*background-color: darkgray;*/
 }
 
 .container {
@@ -12,12 +20,12 @@ body {
 
 .glowy {
   text-decoration: none;
-  color: black;
+  color: #222222;
 }
 
 .glowy:hover {
     -webkit-animation-name: glowy;
-    -webkit-animation-duration: 1.0s;
+    -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
     -webkit-animation-timing-function: ease-in-out;
@@ -26,7 +34,7 @@ body {
 @-webkit-keyframes glowy {
     from { }
     to {
-        text-shadow: 0 0 40px #8533FF;
+        text-shadow: 0 0 20px #8533FF;
     }
 }
 
@@ -35,11 +43,9 @@ a {
   color: black;
 }
 
-h1 {
-  text-align: center;
-  font-size: 48px;
-}
 
 #canvas {
-  border: 1px solid gray;
+  /*border: 2px solid white;*/
+  background-color: #222222;
 }
+

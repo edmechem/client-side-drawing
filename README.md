@@ -1,3 +1,2 @@
-# client-side-drawing
+# DBC Thundertalk - Client-Side Drawing
 
-Add ReadMe
