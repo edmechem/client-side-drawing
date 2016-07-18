@@ -32,9 +32,12 @@ h1 {
 }
 
 @-webkit-keyframes glowy {
-    from { }
+    from {
+      color: black;
+    }
     to {
-        text-shadow: 0 0 20px #8533FF;
+      color: blue;
+      text-shadow: 0 0 20px #8533FF;
     }
 }
 
