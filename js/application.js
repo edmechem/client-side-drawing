@@ -87,11 +87,16 @@ function grabAndDrawLastTwoClicks(click1, click2) {
 
 function drawBox(x, y, width, height) {
   var color1 = randomColor();
+  sleep(30);
   var color2 = randomColor();
+  sleep(30);
   var color3 = randomColor();
+  sleep(30);
   var color4 = randomColor();
+  sleep(30);
   var color5 = randomColor();
 
+  // fillRect = semiRandomFillRectCoordinates(width, height);
   if (height >= width) {
     var fillRect = [0, 0, 0, height];
   } else {
@@ -115,3 +120,25 @@ function randomColor() {
   return "#" + redVal + greenVal + blueVal;
 }
 
+function sleep(miliseconds) {
+   var currentTime = new Date().getTime();
+   while (currentTime + miliseconds >= new Date().getTime()) {
+   }
+}
+
+// function semiRandomFillRectCoordinates(width, height) {
+//   if (height >= width) {
+//     var myHeight = Math.floor((height*2)/3) + Math.floor((height/3) * Math.random());
+//     var myWidth = Math.floor((width/2) * Math.random());
+//     // var myWidth = width;
+//   } else {
+//     var myWidth = Math.floor((width*2)/3) + Math.floor((width/3) * Math.random());
+//     var myHeight = Math.floor((height/2) * Math.random());
+//     // var myHeight = height;
+//   }
+//   return [randomIntFraction(width), randomIntFraction(height), myWidth, myHeight]
+// }
+
+// function randomIntFraction(number) {
+//   return Math.floor(number * Math.random());
+// }
