@@ -88,6 +88,9 @@ function grabAndDrawLastTwoClicks(click1, click2) {
 function drawBox(x, y, width, height) {
   var color1 = randomColor();
   var color2 = randomColor();
+  var color3 = randomColor();
+  var color4 = randomColor();
+  var color5 = randomColor();
 
   if (height >= width) {
     var fillRect = [0, 0, 0, height];
@@ -97,7 +100,10 @@ function drawBox(x, y, width, height) {
 
   var theGradient = theContext.createLinearGradient(fillRect[0], fillRect[1], fillRect[2], fillRect[3]);
   theGradient.addColorStop(0, color1);
-  theGradient.addColorStop(1, color2);
+  theGradient.addColorStop(.25, color2);
+  theGradient.addColorStop(.5, color3);
+  theGradient.addColorStop(.75, color4);
+  theGradient.addColorStop(1, color5);
   theContext.fillStyle = theGradient;
   theContext.fillRect(x, y, width, height);
 }
